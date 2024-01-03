@@ -12,7 +12,6 @@ const WorkoutPage = () => {
 	const [workout, setWorkout] = useState({});
 	const [isLoading, setIsLoading] = useState(null);
 	const [isInEditing, setIsInEditing] = useState(false);
-	const [editingFormValues, setEditingFormValues] = useState({});
 	const navigate = useNavigate();
 	const editingForm = useRef();
 
@@ -49,7 +48,6 @@ const WorkoutPage = () => {
 					await getDoc(doc(workoutsCollectionRef, workoutId))
 				).data();
 				setWorkout(fetchedWorkout);
-				setEditingFormValues({ ...fetchedWorkout });
 			} catch (err) {
 				console.error(err);
 			}
